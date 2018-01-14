@@ -5,24 +5,23 @@
  */
 package controller;
 
-import static java.io.FileDescriptor.out;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import models.DAO;
 
 /**
  *
  * @author Alexis
  */
-public class home extends HttpServlet {
-    private static final String vue = "/WEB-INF/home.jsp";
+public class account extends HttpServlet {
+    private static final String vue = "/WEB-INF/account.jsp";
     
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         this.getServletContext().getRequestDispatcher(vue).forward(request,response);
     }
-    
 }
