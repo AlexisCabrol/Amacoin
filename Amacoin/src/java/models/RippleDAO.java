@@ -13,5 +13,7 @@ import beans.Ripple;
  */
 public interface RippleDAO {
     Ripple getWalletsXRP(String email) throws DAOException;
+    boolean ajoutXRPtoWallet(String adresse, int nombre) throws DAOException;
+    boolean createWalletXRP(String adresse) throws DAOException;
     
 }

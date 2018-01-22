@@ -16,7 +16,18 @@ public interface PanierDAO {
     boolean insertPanierETH(int idPanier, int nombre) throws DAOException;
     boolean insertPanierXRP(int idPanier, int nombre) throws DAOException;
     boolean insertPanierBTC(int idPanier, int nombre) throws DAOException;
+    boolean paiement(int idPanier, int total) throws DAOException;
+    boolean remiseAZeoPanier(int idPanier) throws DAOException;
     boolean createPanier(int idClient) throws DAOException;
     int existePanier(int idClient) throws DAOException;
+    int nombreBTCPanier(int idPanier) throws DAOException;
+    int nombreETHPanier(int idPanier) throws DAOException;
+    int nombreLTCPanier(int idPanier) throws DAOException;
+    int nombreXRPPanier(int idPanier) throws DAOException;
+    int recapPrixBTC(int idPanier) throws DAOException;
+    int recapPrixETH(int idPanier) throws DAOException;
+    int recapPrixLTC(int idPanier) throws DAOException;
+    int recapPrixXRP(int idPanier) throws DAOException;
+    int recapPrixTotal(int idPanier) throws DAOException;
     
 }

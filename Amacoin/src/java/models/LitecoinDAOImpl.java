@@ -54,5 +54,50 @@ public class LitecoinDAOImpl implements LitecoinDAO {
         ltc.setUnit(rs.getFloat("unit"));
         return ltc;
     }
+
+    @Override
+    public boolean ajoutLTCtoWallet(String adresse, int nombre) throws DAOException {
+        String query = "update ltc set nombre = nombre+? where adresse_wallet = ?";
+        Connection conn = null;
+        PreparedStatement ps = null;
+        int nbligne = 0;
+        
+        try {
+            conn = dao.getConnection();
+            ps = iniRequest(conn, query, false, nombre,adresse);
+            nbligne = ps.executeUpdate();
+            if(nbligne == 1)
+                return true;
+            else
+                return false;
+        } catch(SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            DAOUtilitaire.fermeturesSilencieuses(ps,conn);
+        }
+    }
+
+    @Override
+    public boolean createWalletLTC(String adresse) throws DAOException {
+        String query = "insert into ltc values (?,0,200)";
+        Connection conn = null;
+        PreparedStatement ps = null;
+        int nbligne = 0;
+        
+        try {
+           conn = dao.getConnection();
+           ps = iniRequest(conn, query, false, adresse);
+           nbligne = ps.executeUpdate();
+           if(nbligne == 1)
+               return true;
+           else
+               return false;
+        } catch(SQLException e) {
+            
+        } finally {
+            DAOUtilitaire.fermeturesSilencieuses(ps,conn);
+        }
+        return false;
+    }
     
 }

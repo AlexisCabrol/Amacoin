@@ -13,5 +13,6 @@ import beans.Bitcoin;
  */
 public interface BitcoinDAO {
     Bitcoin getWalletsBTC(String email) throws DAOException;
-    
+    boolean createWalletBTC(String adresse) throws DAOException;
+    boolean ajoutBTCtoWallet(String adresse, int nombre) throws DAOException;
 }

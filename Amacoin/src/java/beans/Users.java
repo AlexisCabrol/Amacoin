@@ -5,6 +5,8 @@
  */
 package beans;
 
+import java.util.Random;
+
 /**
  *
  * @author Alexis
@@ -72,6 +74,16 @@ public class Users {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public static String generateWallet() {
+        Random rand = new Random();
+        String str = "";
+        for(int i=0; i<25; i++) {
+            char c = (char)(rand.nextInt(26)+97);
+            str+=c;
+        }
+        return str;
     }
     
     

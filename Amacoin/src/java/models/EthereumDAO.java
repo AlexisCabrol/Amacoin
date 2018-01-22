@@ -12,6 +12,8 @@ import beans.Ethereum;
  * @author Alexis
  */
 public interface EthereumDAO {
-    Ethereum getWalletsETH(String email) throws DAOException;
     
+    Ethereum getWalletsETH(String email) throws DAOException;
+    boolean ajoutETHtoWallet(String adresse, int nombre) throws DAOException;
+    boolean createWalletETH(String adresse) throws DAOException;
 }

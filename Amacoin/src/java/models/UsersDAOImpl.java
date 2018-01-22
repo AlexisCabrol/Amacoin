@@ -7,8 +7,7 @@ package models;
 
 import beans.Users;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static beans.Users.generateWallet;
 import static models.DAOUtilitaire.fermeturesSilencieuses;
 import static models.DAOUtilitaire.iniRequest;
 
@@ -47,11 +46,10 @@ public class UsersDAOImpl implements UsersDAO {
     
     
     @Override
-    public Users findUser(String email) throws DAOException {
+    public boolean findUser(String email) throws DAOException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Users us = new Users();
         String query = "select email from users where email = ?";
 
         try {
@@ -59,7 +57,9 @@ public class UsersDAOImpl implements UsersDAO {
             ps = iniRequest(conn,query,true,email);
             rs = ps.executeQuery();
             if(rs.next()) {
-                us = map(rs);
+                return true;
+            } else {
+                return false;
             }
         } catch(SQLException e) {
             throw new DAOException(e);
@@ -67,7 +67,6 @@ public class UsersDAOImpl implements UsersDAO {
         } finally {
             fermeturesSilencieuses(rs, ps, conn);
         }
-        return us;
         
     }
 
@@ -75,32 +74,26 @@ public class UsersDAOImpl implements UsersDAO {
     public boolean inscription(String email, String pwd, String confirmation) throws DAOException {
         Connection conn = null;
         PreparedStatement ps = null;
-        ResultSet rs = null;
-        String query = "insert into users (email,password) values (?,?)";
+        String walletBTC = generateWallet();
+        String walletETH = generateWallet();
+        String walletLTC = generateWallet();
+        String walletXRP = generateWallet();
+        String query = "insert into users (email,password,wallets_btc,wallets_xrp,wallets_ltc,wallets_eth) values (?,?,?,?,?,?)";
         int statut = 0;
         
         try {
-            
-            if(pwd != null && confirmation != null && pwd.equals(confirmation)) {
-                Users user = findUser(email);
-                if(user != null) {
-                    return false;
-                } else {
                     conn = dao.getConnection();
-                    ps = iniRequest(conn,query,true,email,pwd);
+                    ps = iniRequest(conn,query,false,email,pwd,walletBTC,walletXRP,walletLTC,walletETH);
                     statut = ps.executeUpdate();
-                }
-            }
+                    if(statut == 1)
+                        return true;
+                    else
+                        return false;   
             
         } catch (SQLException ex) {
             throw new DAOException(ex);
         } finally {
-            fermeturesSilencieuses(rs, ps, conn);
-        }
-        if(statut == 0) {
-            return false;
-        } else {
-            return true;
+            fermeturesSilencieuses(ps, conn);
         }
     }
     
@@ -117,6 +110,28 @@ public class UsersDAOImpl implements UsersDAO {
         utilisateur.setWallets_ltc(rs.getString("wallets_ltc"));
         return utilisateur;
 
+    }
+
+    @Override
+    public Users findWallet(String email) throws DAOException {
+       Connection conn = null;
+       PreparedStatement ps = null;
+       ResultSet rs = null;
+       String query = "select * from users where email = ?";
+       
+       try {
+           conn = dao.getConnection();
+           ps = iniRequest(conn, query, false, email);
+           rs = ps.executeQuery();
+           if(rs.next()) {
+               return map(rs);
+           }
+       } catch(SQLException e) {
+           throw new DAOException(e);
+       } finally {
+           DAOUtilitaire.fermeturesSilencieuses(rs, ps, conn);
+       }
+       return null;
     }
 
     

@@ -13,5 +13,7 @@ import beans.Litecoin;
  */
 public interface LitecoinDAO {
     Litecoin getWalletsLTC(String email) throws DAOException;
+    boolean ajoutLTCtoWallet(String adresse, int nombre) throws DAOException;
+    boolean createWalletLTC(String adresse) throws DAOException;
     
 }

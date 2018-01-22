@@ -42,6 +42,10 @@
         <servlet-name>account</servlet-name>
         <servlet-class>controller.account</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>paiement</servlet-name>
+        <servlet-class>controller.paiement</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -77,6 +81,10 @@
     <servlet-mapping>
         <servlet-name>account</servlet-name>
         <url-pattern>/account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>paiement</servlet-name>
+        <url-pattern>/paiement</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

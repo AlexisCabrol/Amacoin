@@ -56,6 +56,10 @@ public class login extends HttpServlet {
                 session.setAttribute("email",request.getParameter("email"));
                 session.setAttribute("id",user.getId());
                 session.setAttribute("log",true);
+                session.setAttribute("adress_btc",user.getWallets_bts());
+                session.setAttribute("adress_eth",user.getWallets_eth());
+                session.setAttribute("adress_xrp", user.getWallets_xrp());
+                session.setAttribute("adress_ltc", user.getWallets_ltc());
                 log = true;
             
             } else {

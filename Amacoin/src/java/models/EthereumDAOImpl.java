@@ -54,5 +54,50 @@ public class EthereumDAOImpl implements EthereumDAO{
         eth.setUnit(rs.getFloat("unit"));
         return eth;
     }
+
+    @Override
+    public boolean ajoutETHtoWallet(String adresse, int nombre) throws DAOException {
+        String query = "update eth set nombre = nombre+? where adresse_wallet = ?";
+        Connection conn = null;
+        PreparedStatement ps = null;
+        int nbligne = 0;
+        
+        try {
+            conn = dao.getConnection();
+            ps = iniRequest(conn, query, false, nombre,adresse);
+            nbligne = ps.executeUpdate();
+            if(nbligne == 1)
+                return true;
+            else
+                return false;
+        } catch(SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            DAOUtilitaire.fermeturesSilencieuses(ps,conn);
+        }
+    }
+
+    @Override
+    public boolean createWalletETH(String adresse) throws DAOException {
+        String query = "insert into eth values (?,0,1000)";
+        Connection conn = null;
+        PreparedStatement ps = null;
+        int nbligne = 0;
+        
+        try {
+           conn = dao.getConnection();
+           ps = iniRequest(conn, query, false, adresse);
+           nbligne = ps.executeUpdate();
+           if(nbligne == 1)
+               return true;
+           else
+               return false;
+        } catch(SQLException e) {
+            
+        } finally {
+            DAOUtilitaire.fermeturesSilencieuses(ps,conn);
+        }
+        return false;
+    }
     
 }

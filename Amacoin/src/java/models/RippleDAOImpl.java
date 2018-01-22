@@ -54,5 +54,50 @@ public class RippleDAOImpl implements RippleDAO{
         }
         return xrp;
     }
+
+    @Override
+    public boolean ajoutXRPtoWallet(String adresse, int nombre) throws DAOException {
+        String query = "update xrp set nombre = nombre+? where adresse_wallet = ?";
+        Connection conn = null;
+        PreparedStatement ps = null;
+        int nbligne = 0;
+        
+        try {
+            conn = dao.getConnection();
+            ps = iniRequest(conn, query, false, nombre,adresse);
+            nbligne = ps.executeUpdate();
+            if(nbligne == 1)
+                return true;
+            else
+                return false;
+        } catch(SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            DAOUtilitaire.fermeturesSilencieuses(ps,conn);
+        }
+    }
+
+    @Override
+    public boolean createWalletXRP(String adresse) throws DAOException {
+        String query = "insert into xrp values (?,0,2)";
+        Connection conn = null;
+        PreparedStatement ps = null;
+        int nbligne = 0;
+        
+        try {
+           conn = dao.getConnection();
+           ps = iniRequest(conn, query, false, adresse);
+           nbligne = ps.executeUpdate();
+           if(nbligne == 1)
+               return true;
+           else
+               return false;
+        } catch(SQLException e) {
+            
+        } finally {
+            DAOUtilitaire.fermeturesSilencieuses(ps,conn);
+        }
+        return false;
+    }
     
 }

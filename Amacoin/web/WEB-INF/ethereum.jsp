@@ -27,10 +27,10 @@
                             L'ajout dans le panier c'est bien dérouler.
                             <% } %>
                             <div class="row">
-    <form class="col s12" action="bitcoin" method="post">
+    <form class="col s12" action="ethereum" method="post">
       <div class="row">
         <div class="input-field col s6">
-          <input id="nombre" type="text" class="validate">
+          <input id="nombre" name="nombre" type="text" class="validate">
           <label for="nombre">Nombre d'item</label>
         </div>
       </div>

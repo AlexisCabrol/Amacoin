@@ -12,8 +12,9 @@ import beans.Users;
  * @author Alexis
  */
 public interface UsersDAO {
+    Users findWallet(String email) throws DAOException;
     Users getUsers(String email, String pwd) throws DAOException;
-    Users findUser(String email) throws DAOException;
+    boolean findUser(String email) throws DAOException;
     boolean inscription(String email, String pwd, String confirmation) throws DAOException;
     
 }
