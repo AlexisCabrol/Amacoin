@@ -12,6 +12,10 @@ import java.sql.SQLException;
  * @author Alexis
  */
 public interface PanierDAO {
+    boolean viderPanierBTC(int idPanier) throws DAOException;
+    boolean viderPanierETH(int idPanier) throws DAOException;
+    boolean viderPanierXRP(int idPanier) throws DAOException;
+    boolean viderPanierLTC(int idPanier) throws DAOException;
     boolean insertPanierLTC(int idPanier, int nombre) throws DAOException;
     boolean insertPanierETH(int idPanier, int nombre) throws DAOException;
     boolean insertPanierXRP(int idPanier, int nombre) throws DAOException;

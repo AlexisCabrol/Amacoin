@@ -20,25 +20,29 @@
                         <li class="collection-item avatar">
                             <img src="assets/image/bitcoin.png" class="circle"/>
                                 <span class="title">Bitcoin</span>
-                                <p>Commande pour un total de : ${totalBTC}€</p>
+                                <p>Commande pour un total de : ${totalBTC}€ <br>
+                                    <a href="deletebtc">Supprimer</a></p>
                                    
                         </li>
                         <li class="collection-item avatar">
                             <img class="circle" src="assets/image/ripple.png"/>
                                <span class="title">Ripple</span>
-                               <p>Commande pour un total de : ${totalXRP}€</p>
+                               <p>Commande pour un total de : ${totalXRP}€ <br>
+                                   <a href="deletexrp">Supprimer</a></p>
                                
                         </li>
                         <li class="collection-item avatar">
                             <img class="circle" src="assets/image/ethereum.png"/>
                                 <span class="title">Ethereum</span>
-                                <p>Commande pour un total de : ${totalETH}€</p>
+                                <p>Commande pour un total de : ${totalETH}€<br>
+                                   <a href="deleteeth">Supprimer</a></p>
                                  
                         </li>
                         <li class="collection-item avatar">
                             <img class="circle" src="assets/image/litecoin.png"/>
                                 <span class="title">Litecoin</span>
-                                <p>Commande pour un total de : ${totalLTC}€</p>
+                                <p>Commande pour un total de : ${totalLTC}€<br>
+                                   <a href="deleteltc">Supprimer</a></p>
       
                         </li>
                     </ul>

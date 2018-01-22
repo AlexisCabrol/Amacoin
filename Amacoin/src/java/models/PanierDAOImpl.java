@@ -402,4 +402,92 @@ public class PanierDAOImpl implements PanierDAO{
         }
         return 0;
     }
+
+    @Override
+    public boolean viderPanierBTC(int idPanier) throws DAOException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        String query = "delete from details where id_commande = ? and ref_item = 1";
+        int nbligne = 0;
+        
+        try {
+            conn = dao.getConnection();
+            ps = iniRequest(conn, query, false, idPanier);
+            nbligne = ps.executeUpdate();
+            if(nbligne == 1)
+                return true;
+            else
+                return false;
+        }catch(SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            DAOUtilitaire.fermeturesSilencieuses(ps,conn);
+        }
+    }
+
+    @Override
+    public boolean viderPanierETH(int idPanier) throws DAOException {
+                Connection conn = null;
+        PreparedStatement ps = null;
+        String query = "delete from details where id_commande = ? and ref_item = 3";
+        int nbligne = 0;
+        
+        try {
+            conn = dao.getConnection();
+            ps = iniRequest(conn, query, false, idPanier);
+            nbligne = ps.executeUpdate();
+            if(nbligne == 1)
+                return true;
+            else
+                return false;
+        }catch(SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            DAOUtilitaire.fermeturesSilencieuses(ps,conn);
+        }
+    }
+
+    @Override
+    public boolean viderPanierXRP(int idPanier) throws DAOException {
+                Connection conn = null;
+        PreparedStatement ps = null;
+        String query = "delete from details where id_commande = ? and ref_item = 4";
+        int nbligne = 0;
+        
+        try {
+            conn = dao.getConnection();
+            ps = iniRequest(conn, query, false, idPanier);
+            nbligne = ps.executeUpdate();
+            if(nbligne == 1)
+                return true;
+            else
+                return false;
+        }catch(SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            DAOUtilitaire.fermeturesSilencieuses(ps,conn);
+        }
+    }
+
+    @Override
+    public boolean viderPanierLTC(int idPanier) throws DAOException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        String query = "delete from details where id_commande = ? and ref_item = 2";
+        int nbligne = 0;
+        
+        try {
+            conn = dao.getConnection();
+            ps = iniRequest(conn, query, false, idPanier);
+            nbligne = ps.executeUpdate();
+            if(nbligne == 1)
+                return true;
+            else
+                return false;
+        }catch(SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            DAOUtilitaire.fermeturesSilencieuses(ps,conn);
+        }
+    }
 }

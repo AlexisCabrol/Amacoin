@@ -46,6 +46,22 @@
         <servlet-name>paiement</servlet-name>
         <servlet-class>controller.paiement</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>deletebtc</servlet-name>
+        <servlet-class>controller.deletebtc</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteltc</servlet-name>
+        <servlet-class>controller.deleteltc</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deletexrp</servlet-name>
+        <servlet-class>controller.deletexrp</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteeth</servlet-name>
+        <servlet-class>controller.deleteeth</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -85,6 +101,22 @@
     <servlet-mapping>
         <servlet-name>paiement</servlet-name>
         <url-pattern>/paiement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deletebtc</servlet-name>
+        <url-pattern>/deletebtc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteltc</servlet-name>
+        <url-pattern>/deleteltc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deletexrp</servlet-name>
+        <url-pattern>/deletexrp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteeth</servlet-name>
+        <url-pattern>/deleteeth</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
