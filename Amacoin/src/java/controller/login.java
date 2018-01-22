@@ -24,7 +24,6 @@ public class login extends HttpServlet {
     private static final String CONF_DAO = "dao";
     private static final String vue = "/WEB-INF/login.jsp";
     private static final String vue_home = "/WEB-INF/home.jsp";
-    private static final String vue_membre = "/WEB-INF/account.jsp";
     private UsersDAO userDAO;
     
     @Override
@@ -49,11 +48,13 @@ public class login extends HttpServlet {
         Boolean log = session.getAttribute("log") != null ? (Boolean) session.getAttribute("log"):false;
         
         if(log == true) {
-            this.getServletContext().getRequestDispatcher(vue_membre).forward(request,response);
+            this.getServletContext().getRequestDispatcher(vue_home).forward(request,response);
         } else {
             // On regarde dans la bd
             Users user = this.userDAO.getUsers(request.getParameter("email"), request.getParameter("pwd"));
-            if(user != null) {
+            if(user != null && user.getPassword().equals(request.getParameter("pwd"))) {
+                session.setAttribute("email",request.getParameter("email"));
+                session.setAttribute("id",user.getId());
                 session.setAttribute("log",true);
                 log = true;
             
@@ -63,7 +64,7 @@ public class login extends HttpServlet {
         }
         
         if(log == true) {
-            this.getServletContext().getRequestDispatcher(vue_membre).forward(request,response);
+            this.getServletContext().getRequestDispatcher(vue_home).forward(request,response);
         } else {
             this.getServletContext().getRequestDispatcher(vue).forward(request,response);
         }

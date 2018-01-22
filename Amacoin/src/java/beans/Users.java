@@ -13,6 +13,42 @@ public class Users {
     private int id;
     private String email;
     private String password;
+    private String wallets_bts;
+    private String wallets_xrp;
+    private String wallets_ltc;
+    private String wallets_eth;
+
+    public String getWallets_bts() {
+        return wallets_bts;
+    }
+
+    public void setWallets_bts(String wallets_bts) {
+        this.wallets_bts = wallets_bts;
+    }
+
+    public String getWallets_xrp() {
+        return wallets_xrp;
+    }
+
+    public void setWallets_xrp(String wallets_xrp) {
+        this.wallets_xrp = wallets_xrp;
+    }
+
+    public String getWallets_ltc() {
+        return wallets_ltc;
+    }
+
+    public void setWallets_ltc(String wallets_ltc) {
+        this.wallets_ltc = wallets_ltc;
+    }
+
+    public String getWallets_eth() {
+        return wallets_eth;
+    }
+
+    public void setWallets_eth(String wallets_eth) {
+        this.wallets_eth = wallets_eth;
+    }
 
     public int getId() {
         return id;

@@ -72,5 +72,25 @@ public class DAO {
      public UsersDAO getUsersDAO() {
          return new UsersDAOImpl(this);
      }
+     
+     public BitcoinDAO getBitcoinDAO() {
+         return new BitcoinDAOImpl(this);
+     }
+     
+     public LitecoinDAO getLitecoinDAO() {
+         return new LitecoinDAOImpl(this);
+     }
+     
+     public RippleDAO getRippleDAO() {
+         return new RippleDAOImpl(this);
+     }
+     
+     public EthereumDAO getEthereumDAO() {
+         return new EthereumDAOImpl(this);
+     }
+     
+    public PanierDAO getPanierDAO() {
+        return new PanierDAOImpl(this);
+    }
 
 }

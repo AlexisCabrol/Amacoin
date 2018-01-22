@@ -51,6 +51,7 @@ public class UsersDAOImpl implements UsersDAO {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
+        Users us = new Users();
         String query = "select email from users where email = ?";
 
         try {
@@ -58,7 +59,7 @@ public class UsersDAOImpl implements UsersDAO {
             ps = iniRequest(conn,query,true,email);
             rs = ps.executeQuery();
             if(rs.next()) {
-                return map(rs);
+                us = map(rs);
             }
         } catch(SQLException e) {
             throw new DAOException(e);
@@ -66,7 +67,7 @@ public class UsersDAOImpl implements UsersDAO {
         } finally {
             fermeturesSilencieuses(rs, ps, conn);
         }
-        return null;
+        return us;
         
     }
 
@@ -76,6 +77,7 @@ public class UsersDAOImpl implements UsersDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         String query = "insert into users (email,password) values (?,?)";
+        int statut = 0;
         
         try {
             
@@ -86,12 +88,7 @@ public class UsersDAOImpl implements UsersDAO {
                 } else {
                     conn = dao.getConnection();
                     ps = iniRequest(conn,query,true,email,pwd);
-                    int statut = ps.executeUpdate();
-                    if(statut==0) {
-                        return false;
-                    } else {
-                        return true;
-                    }
+                    statut = ps.executeUpdate();
                 }
             }
             
@@ -100,7 +97,11 @@ public class UsersDAOImpl implements UsersDAO {
         } finally {
             fermeturesSilencieuses(rs, ps, conn);
         }
-        return true;
+        if(statut == 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
     
     
@@ -110,6 +111,10 @@ public class UsersDAOImpl implements UsersDAO {
         utilisateur.setId(rs.getInt("id"));
         utilisateur.setEmail(rs.getString("email"));
         utilisateur.setPassword(rs.getString("password"));
+        utilisateur.setWallets_bts(rs.getString("wallets_btc"));
+        utilisateur.setWallets_eth(rs.getString("wallets_eth"));
+        utilisateur.setWallets_xrp(rs.getString("wallets_xrp"));
+        utilisateur.setWallets_ltc(rs.getString("wallets_ltc"));
         return utilisateur;
 
     }

@@ -15,7 +15,11 @@
           <div class="section">
           <div class="register">
               <h5>S'identifier sur Amacoin</h5>
+              <% if(request.getAttribute("error") != null) { %>
+              <p> Erreur dans l'identification. </p>
+              <% } %>
           </div>
+              
           </div>
           
           

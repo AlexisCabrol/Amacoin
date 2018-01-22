@@ -23,7 +23,13 @@
 
         <h2>Acheter des cryptomonnaies...</h2>
         <div class="rte">
-          <meta charset="utf-8"><span>Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</span>
+          <meta charset="utf-8"><span>Une cryptomonnaie est une monnaie virtuelle utilisable sur un réseau informatique décentralisé, de pair à pair. 
+Elle est fondée sur les principes de la cryptographie et intègre l'utilisateur dans les processus 
+d'émission et de règlement des transactions.
+Aujourd'hui, toutes les cryptomonnaies sont des monnaies alternatives, car elles n'ont de cours légal dans aucun pays. 
+Les cryptomonnaies utilisent un système de validation par preuve de travail pour les protéger des contrefaçons électroniques. 
+De nombreuses cryptomonnaies ont été développées mais la plupart sont similaires 
+et dérivent de la première implémentation complète : le Bitcoin.</span>
         </div>
       </div>
     </div>

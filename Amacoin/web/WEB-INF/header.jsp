@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css"  media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="asset/css/moncss.css" />
+        <link type="text/css" rel="stylesheet" href="assets/css/moncss.css" />
     </head>
     <body>
         
@@ -28,7 +28,7 @@
             </a>
     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-          <li class="site-nav--active active">
+          <li class="site-nav--active">
             <a href="home" class="site-nav__link">Accueil</a>
           </li>
 
@@ -103,8 +103,5 @@
 
   </div>
 </nav>
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript" src="assets/js/materialize.min.js"></script>
-    </body>
-</html>
+
+      <main>

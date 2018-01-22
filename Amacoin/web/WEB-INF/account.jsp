@@ -4,8 +4,10 @@
     Author     : Alexis
 --%>
 
+<%@page import="beans.Bitcoin"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="header.jsp" />
+<c:set var ="wallet_btc" value=""/>
 <!DOCTYPE html>
 <html>
     <body>
@@ -41,30 +43,31 @@
           <tr>
               <th>Crypto</th>
               <th>Montant</th>
-              <th>Wallet adress</th>
+              <th>Wallet adresse</th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
             <td>Bitcoin (BTC)</td>
-            <td></td>
-            <td></td>
+            <td>${ wallet_btc.nombre * wallet_btc.unit}€</td>
+            <td>${ wallet_btc.wallets }
+           </td>
           </tr>
           <tr>
             <td>Ripple (XPR)</td>
-            <td></td>
-            <td></td>
+            <td>${wallet_xrp.nombre * wallet_xrp.unit}€</td>
+            <td>${wallet_xrp.wallets}</td>
           </tr>
           <tr>
             <td>Ethereum (ETH)</td>
-            <td></td>
-            <td></td>
+            <td>${wallet_eth.nombre * wallet_eth.unit}€</td>
+            <td>${wallet_eth.wallets}</td>
           </tr>
            <tr>
             <td>Litecoin (LTC)</td>
-            <td></td>
-            <td></td>
+            <td>${wallet_ltc.nombre * wallet_ltc.unit}€</td>
+            <td>${wallet_ltc.wallets}</td>
           </tr>
         </tbody>
       </table>

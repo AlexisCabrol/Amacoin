@@ -8,6 +8,10 @@ import java.sql.Statement;
 
 public final class DAOUtilitaire {
 
+    static void fermetureSilencieuses(PreparedStatement ps, Connection conn) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /*
      * Constructeur cachÃ© par dÃ©faut (car c'est une classe finale utilitaire,
      * contenant uniquement des mÃ©thode appelÃ©es de maniÃ¨re statique)
